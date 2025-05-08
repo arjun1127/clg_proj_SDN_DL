@@ -55,4 +55,6 @@ mininet/
 *.idea/
 *.vscode/
 # Ignore SUMO cloned repository
-sumo/sumo/
+sumo/
+ap_nodes/
+lstm_model/
