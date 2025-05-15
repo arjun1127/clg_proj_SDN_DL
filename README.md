@@ -30,13 +30,14 @@ This project integrates **Software Defined Networking (SDN)** with **Long Short-
 # NOTE EVERYTIME WHEN YOU WANT TO RUN LSTM/ MACHINE LEARINING PART OF CODE ACTIVATE sdn_lstm_env
 # AND TO START THE CONTROLLER / RUN ANY RYU FILES ACTIVATE ryu_env
 
+
 ##  Installation
 
 Follow the steps below to set up the SDN-LSTM Congestion Reduction project on a Ubuntu-based system.
 
 ### 1. System Dependencies
 
-Install required packages: this is LSTM part setup 
+Install required packages: this is LSTM part setup , note this should be in root folder
 
 ```
 sudo apt update
@@ -92,19 +93,6 @@ ryu-manager --version
 cd ..
 ```
 
-## to activate and decactivate the env 
-```
-#activate ryu
-source ryu_env/bin/activate
-```
-```
-#activate lstm
-source sdn_lstm_env/bin/activate
-```
-```
-deactivate
-```
-
 ## Install mininet 
 
 ```
@@ -130,12 +118,26 @@ sudo mn --test pingall
 cd ..
 ```
 
+## to activate and decactivate the env 
+```
+#activate ryu
+cd ryu
+source ryu_env/bin/activate
+```
+```
+#activate lstm
+#make sure to be root folder 
+source sdn_lstm_env/bin/activate
+```
+```
+deactivate
+```
+
 ## Clone repo
 ```
 git clone https://github.com/your-username/sdn-lstm-vehicular.git
 cd sdn-lstm-vehicular
 ```
-
 
 
 
