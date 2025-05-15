@@ -41,8 +41,7 @@ Install required packages: this is LSTM part setup , note this should be in root
 
 ```
 sudo apt update
-sudo apt install -y git python3 python3-pip python3-venv mininet sumo sumo-tools
-sudo apt install -y sumo-gui
+sudo apt install -y git python3 
 python3 -m venv sdn_lstm_env
 source sdn_lstm_env/bin/activate
 pip install --upgrade pip
