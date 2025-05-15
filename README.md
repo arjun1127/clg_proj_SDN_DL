@@ -27,6 +27,9 @@ This project integrates **Software Defined Networking (SDN)** with **Long Short-
 
 ---
 
+# NOTE EVERYTIME WHEN YOU WANT TO RUN LSTM/ MACHINE LEARINING PART OF CODE ACTIVATE sdn_lstm_env
+# AND TO START THE CONTROLLER / RUN ANY RYU FILES ACTIVATE ryu_env
+
 ##  Installation
 
 Follow the steps below to set up the SDN-LSTM Congestion Reduction project on a Ubuntu-based system.
