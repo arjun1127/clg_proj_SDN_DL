@@ -133,6 +133,78 @@ source sdn_lstm_env/bin/activate
 deactivate
 ```
 
+#  How to Run the Project
+
+Follow these steps **in order** to properly run the full system:
+
+---
+
+## Step 1: Run LSTM Prediction Notebook
+
+1. Open the following Jupyter notebook:
+
+   ```
+   ap_node_prediction/model_new (2).ipynb
+   ```
+2. Click **"Run All"** to generate AP traffic predictions.
+
+---
+
+##  Step 2: Send Predictions to SDN Controller
+
+1. Open this notebook:
+
+   ```
+   train_model/sent_predictions.ipynb
+   ```
+2. Click **"Run All"** to send predictions periodically via UDP to the SDN controller.
+
+---
+
+## Step 3: Start Ryu SDN Controller
+
+1. Open a **new terminal**.
+2. Navigate to the Ryu directory and activate the virtual environment:
+
+   ```bash
+   cd ryu
+   source ../ryu_env/bin/activate
+   ```
+
+---
+
+##  Step 4: Run Mininet Simulation
+
+1. In the same terminal, go to the simulation directory:
+
+   ```bash
+   cd ../simulation
+   ```
+2. Run the Mininet topology script:
+
+   ```bash
+   sudo python3 topology.py
+   ```
+
+---
+
+##  Step 5: Start SDN Controller to Receive Predictions
+
+1. Open **another new terminal**.
+2. Run the SDN controller code:
+
+   ```
+   cd sdn_controller
+   python3 recv_pred.py       # Receives predictions via UDP
+   ryu-manager recv_pred.py   # Starts the Ryu controller
+   ```
+
+---
+
+
+
+
+
 ## Clone repo
 ```
 git clone https://github.com/your-username/sdn-lstm-vehicular.git
