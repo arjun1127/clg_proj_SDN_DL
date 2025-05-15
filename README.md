@@ -166,9 +166,12 @@ Follow these steps **in order** to properly run the full system:
 1. Open a **new terminal**.
 2. Navigate to the Ryu directory and activate the virtual environment:
 
-   ```bash
+   ```
+   # if lstm env is activated deactivate it
+   deactivate
    cd ryu
-   source ../ryu_env/bin/activate
+   source /ryu_env/bin/activate
+   cd ..
    ```
 
 ---
@@ -177,12 +180,12 @@ Follow these steps **in order** to properly run the full system:
 
 1. In the same terminal, go to the simulation directory:
 
-   ```bash
+   ```
    cd ../simulation
    ```
 2. Run the Mininet topology script:
 
-   ```bash
+   ```
    sudo python3 topology.py
    ```
 
@@ -195,7 +198,6 @@ Follow these steps **in order** to properly run the full system:
 
    ```
    cd sdn_controller
-   python3 recv_pred.py       # Receives predictions via UDP
    ryu-manager recv_pred.py   # Starts the Ryu controller
    ```
 
