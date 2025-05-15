@@ -33,7 +33,7 @@ Follow the steps below to set up the SDN-LSTM Congestion Reduction project on a 
 
 ### 1. System Dependencies
 
-Install required packages:
+Install required packages: this is LSTM part setup 
 
 ```
 sudo apt update
@@ -44,7 +44,6 @@ source sdn_lstm_env/bin/activate
 pip install --upgrade pip
 
 pip install \
-  ryu \
   tensorflow \
   pandas \
   numpy \
@@ -55,8 +54,80 @@ pip install \
   keras
 
 ```
+## After having setup for LSTM open a new terminal and install/ setup ryu and mininet 
+```
+# Update and install Python 3.10
+sudo apt update
+sudo apt install -y software-properties-common
+sudo add-apt-repository -y ppa:deadsnakes/ppa
+sudo apt update
+sudo apt install -y python3.10 python3.10-venv python3.10-dev python3.10-distutils
 
-##Clone repo
+# Set python3.10 as default (optional, skip if you want to use system python)
+# sudo update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.10 1
+
+# Create and activate a virtual environment for Ryu
+python3.10 -m venv ryu_env
+source ryu_env/bin/activate
+
+# Upgrade pip and install Ryu dependencies
+pip install --upgrade pip
+pip install msgpack-python eventlet greenlet netaddr oslo.config tinyrpc webob
+
+# Clone Ryu and install it
+git clone https://github.com/osrg/ryu.git
+cd ryu
+pip install .
+```
+
+```
+# Test Ryu installation
+ryu-manager --version
+# should show the version 
+```
+```
+cd ..
+```
+
+## to activate and decactivate the env 
+```
+#activate ryu
+source ryu_env/bin/activate
+```
+```
+#activate lstm
+source sdn_lstm_env/bin/activate
+```
+```
+deactivate
+```
+
+## Install mininet 
+
+```
+sudo apt install -y git make gcc python3-pip openvswitch-switch openvswitch-common \
+    openvswitch-test openvswitch-pki openvswitch-ipsec net-tools iputils-ping \
+    iproute2 ethtool socat xterm
+
+# Clone Mininet repo
+git clone https://github.com/mininet/mininet.git
+cd mininet
+
+# Install Mininet using the install script (only core)
+sudo util/install.sh -n3
+```
+
+```
+
+# Test Mininet installation
+sudo mn --test pingall
+
+```
+```
+cd ..
+```
+
+## Clone repo
 ```
 git clone https://github.com/your-username/sdn-lstm-vehicular.git
 cd sdn-lstm-vehicular
